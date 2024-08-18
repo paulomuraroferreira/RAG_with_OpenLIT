@@ -40,7 +40,7 @@ OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318
 
     Run 
     ```python
-        $ python app/chunking.py
+    $ python app/chunking.py
     ```
 
     4.2. Run fastapi
