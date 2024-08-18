@@ -13,8 +13,8 @@ In order to run this repo:
 
 
 ```python
-git clone https://github.com/paulomuraroferreira/Self_correcting_coding_agent.git
-cd Self_correcting_coding_agent
+$ git clone https://github.com/paulomuraroferreira/Self_correcting_coding_agent.git
+$ cd Self_correcting_coding_agent
 ```
 
 2. Install Dependencies:
