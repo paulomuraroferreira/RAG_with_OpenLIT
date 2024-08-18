@@ -42,6 +42,8 @@ class RAGSystem:
 
     def setup_rag_chain(self, question):
         retriever = self.chroma.get_vector_store()
+
+        print('test', retriever.invoke(question))
         retrieval_qa_chat_prompt = self.define_rag_prompt()
         output_parser = StrOutputParser()
 
@@ -70,11 +72,31 @@ class RAGSystem:
 
         # Step 4: Invoke the chain and return the result
         return full_chain.invoke(question)
+    
 
-if __name__ == "__main__":
+
+def main(question="What is QLoRA?"):
+
+    from openlit_evaluation import Evaluation
+    import openlit
+    import asyncio
+
+    openlit.init()  
     rag_system = RAGSystem()
-    result = rag_system.setup_rag_chain("What is QLora?")
+    result = rag_system.setup_rag_chain(question)
     logger.info(f"Answer: {result['answer']}")
     logger.info(f"Context: {result['context']}")
 
+    evaluator = Evaluation(question=question,
+                           answer=result['answer'],
+                           context=result['context'],
+                           user_feedback={"binary_score": True, "text": "Good answer"},
+                           question_number=1)
+    
+    asyncio.run(evaluator.main())
 
+    return result 
+
+
+if __name__ == "__main__":
+    main()

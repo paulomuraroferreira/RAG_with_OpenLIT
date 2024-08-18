@@ -7,9 +7,10 @@ from langchain_chroma import Chroma
 from dotenv import load_dotenv
 load_dotenv()
 from logger_setup import logger
+from utils import PathInfo
 
 class PDFProcessor:
-    def __init__(self, data_folder='./app/data/pdfs/', chunk_size=1000, chunk_overlap=200):
+    def __init__(self, data_folder=PathInfo.PDFS_FOLDER_PATH, chunk_size=1000, chunk_overlap=200):
         self.data_folder = data_folder
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
@@ -49,7 +50,7 @@ class ChromaStore:
         self.vector_store = Chroma(
             collection_name="rag_collection",
             embedding_function=self.embeddings,
-            persist_directory="./app/data/vector_store/",
+            persist_directory=PathInfo.VECTOR_STORE_PATH,
         )
 
     def store_documents(self):
