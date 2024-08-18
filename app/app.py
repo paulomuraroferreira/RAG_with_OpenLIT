@@ -9,9 +9,10 @@ class Query(BaseModel):
 
 @app.post("/query")
 def query_rag(query: Query):
-    print(query)
     response = main(query.question)
-    return {"answer": response['answer']}
+    return {"answer": response['answer'],
+            "context": response['context'],
+            "question": response['question']}
 
 if __name__ == "__main__":
     import uvicorn
