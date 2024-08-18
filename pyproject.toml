@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "LLM-Agent-with-docker"
+version = "0.1.0"
+description = "This project implements self-correcting code agent that uses unit test"
+readme = "README.md"
+requires-python = ">=3.7"
+
+dependencies = [
+    "langchain-core==0.2.29",
+    "langchain-openai==0.1.20",
+    "pytest==8.3.2",
+    "python-dotenv==1.0.1",
+    "langgraph==0.2.4",
+    "langgraph-checkpoint==1.0.3",
+]
+
+[project.optional-dependencies]
+dev = ["black", "flake8"]
+test = ["pytest", "pytest-cov"]
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--strict-markers"
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests*"]
