@@ -39,7 +39,9 @@ OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318
     Put the pdfs files in the folder `app/data/pdfs`
 
     Run 
+    ```python
         $ python app/chunking.py
+    ```
 
     4.2. Run fastapi
 
