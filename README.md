@@ -36,7 +36,7 @@ OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318
 
     4.1. Execute the chunking process
 
-    Put the pdfs files in the app/data/pdfs
+    Put the pdfs files in the folder `app/data/pdfs`
 
     Run 
         $ python app/chunking.py
