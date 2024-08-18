@@ -3,3 +3,4 @@ app/.env
 .env
 **/__pycache__/
 openlit/
+LLM_Agent_with_docker.egg-info/
