@@ -12,7 +12,7 @@ def query_rag(query: Query):
     response = main(query.question)
     return {"answer": response['answer'],
             "context": response['context'],
-            "question": response['question']}
+            "question": query.question}
 
 if __name__ == "__main__":
     import uvicorn
